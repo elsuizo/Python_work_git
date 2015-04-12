@@ -52,7 +52,12 @@ def on_button_press(event):
     plt.plot(ys[:,0], ys[:,1], 'k-') # path
     plt.plot([ys[0,0]], [ys[0,1]], 'o') # start
     plt.plot([ys[-1,0]], [ys[-1,1]], 's') # end
+
     fig.canvas.draw()
     
+    #plt.savefig('phase_portrait.png')
+    
 fig.canvas.mpl_connect('button_press_event', on_button_press)
+
 plt.show()
+
