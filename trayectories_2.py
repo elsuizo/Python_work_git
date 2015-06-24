@@ -17,7 +17,7 @@ def f(X, t):
 
     """
     x1, x2 = X
-    return [x1 - x2 - (x1**2 + (3.0/2.0) * x2**2) * x1, x1 + x2 - (x1**2 + (1.0/2.0) * x2**2) * x2]
+    return [-x1**3, x1]
 
 x1 = np.linspace(-2.0, 2.0, 20)
 x2 = np.linspace(-2.0, 2.0, 20)
@@ -39,12 +39,12 @@ for i in xrange(NI):
 
 
 fig, ax = plt.subplots()
-ellipse = mpl.patches.Ellipse(xy=(0, 0), width=1.7, height=1.5)
-fig.gca().add_artist(ellipse)
+#ellipse = mpl.patches.Ellipse(xy=(0, 0), width=1.7, height=1.5)
+#fig.gca().add_artist(ellipse)
 plt.quiver(X1, X2, u, v, color='r',pivot='mip',units='x')
 plt.streamplot(X1,X2,u,v)
 
-ax.text(0, 0, r'$\vec{\nabla}\mathbf{f}<0$', fontsize=20)
+#ax.text(0, 0, r'$\vec{\nabla}\mathbf{f}<0$', fontsize=20)
 plt.xlabel('$x_1$',fontsize=20)
 plt.ylabel('$x_2$',fontsize=20)
 plt.title(r'Retrato de fase: $\dot{\mathbf{x}}=\mathbf{f}(\mathbf{x})$',fontsize=15)
@@ -56,7 +56,7 @@ plt.ylim([-2, 2])
 #-------------------------------------------------------------------------
 def on_button_press(event):
 
-    t_sim = np.linspace(0,50,200)
+    t_sim = np.linspace(0,10,200)
     x, y = event.xdata, event.ydata # event data capture
 
     x0 = [x,y]
